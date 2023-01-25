@@ -1,30 +1,33 @@
-// business logic
-function add(number1, number2) {
-  return number1 + number2;
+// Business Logic
+function add(num1, num2) {
+  return num1 + num2;
 }
 
-function subtract(number1, number2) {
-  return number1 - number2;
+function subtract(num1, num2) {
+  return num1 - num2;
 }
 
-function multiply(number1, number2) {
-  return number1 * number2;
+function multiply(num1, num2) {
+  return num1 * num2;
 }
 
-function divide(number1, number2) {
-  return number1 / number2;
+function divide(num1, num2) {
+  return num1 / num2;
 }
 
-//user interface logic
-const number1 = parseInt(prompt("Enter a number: "));
-const number2 = parseInt(prompt("Enter another number: "));
+// User Interface Logic
+function handleCalculation(event) {
+  event.preventDefault();
+  const number1 = parseInt(document.querySelector("input#input1").value);
+  const number2 = parseInt(document.querySelector("input#input2").value);
+  const operator = document.querySelector("input[name='operator']:checked").value;
+  console.log("Number 1: " + number1);
+  console.log("Number 2: " + number2);
+  console.log("Operator:", operator);
+}
+}
 
-// window.alert("The sum is " + add(number1, number2) + "." + "The subtraction result is " + subtract(number1, number2) + "." + "The multiplication result is " + multiply(number1, number2) + "." + "The division result is " + divide(number1, number2) + ".")
-
-
-// window.alert("your addition result is " + add(number1, number2));
-// window.alert("your subtraction result is " + subtract(number1, number2));
-// window.alert("your multiplication result is " + multiply(number1, number2));
-// window.alert("your division result is " + divide(number1, number2));
-
-window.alert(parseInt(number1) + "+" + parseInt(number2) + "=" + add(number1, number2) + "." + parseInt(number1) + "-" + parseInt(number2) + "="  + subtract(number1, number2) + "." + parseInt(number1) + "*" + parseInt(number2) + "="  + multiply(number1, number2) + "." + parseInt(number1) + "/" + parseInt(number2) + "="  + divide(number1, number2) + ".")
+window.addEventListener("load", function() {
+  const form = document.getElementById("calculator");
+  form.addEventListener("submit", handleCalculation);
+});
